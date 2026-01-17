@@ -23,6 +23,8 @@ namespace ManagementCompany_Salchuk_Matyukhina_322.Pages
         public MainPage()
         {
             InitializeComponent();
+            var currentFond = Entities.GetContext().SpisokJilogoFondas.ToList();
+            ListViewFond.ItemsSource = currentFond;
         }
     }
 }
