@@ -1,0 +1,101 @@
+﻿<Page x:Class="ManagementCompany_Salchuk_Matyukhina_322.Pages.DebtPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ManagementCompany_Salchuk_Matyukhina_322.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Задолженность по оплате">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="HeaderDebt" Text="Задолженность по оплате" Style="{StaticResource HeaderStyle}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <ListView x:Name="ListViewDebt" 
+          Grid.Row="1"
+          HorizontalContentAlignment="Center"
+          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+          ScrollViewer.VerticalScrollBarVisibility="Auto"
+          ToolTip="Задолженность по оплате">
+
+            <!-- Добавляем ScrollViewer для поддержки прокрутки -->
+            <ListView.Template>
+                <ControlTemplate TargetType="ListView">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Disabled">
+                        <ItemsPresenter/>
+                    </ScrollViewer>
+                </ControlTemplate>
+            </ListView.Template>
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="10" Width="250">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="{Binding Adress}"  Grid.Row="0"
+                               TextWrapping="Wrap" 
+                               HorizontalAlignment="Center" 
+                               Style="{StaticResource ResourceKey=HeaderStyle}"
+                               ToolTip="Адрес"/>
+
+                        <TextBlock Grid.Row="1" Text="{Binding Apartment, StringFormat='Номер квартиры: {0}'}" 
+                           TextWrapping="Wrap" 
+                           HorizontalAlignment="Left" 
+                           Style="{StaticResource ResourceKey=TextStyle}"
+                           ToolTip="Номера квартир"/>
+
+                        <TextBlock Grid.Row="2" Text="{Binding Owner1.Name, StringFormat='Владелец: {0}'}" 
+                           TextWrapping="Wrap" 
+                           HorizontalAlignment="Left" 
+                           Style="{StaticResource ResourceKey=TextStyle}"
+                           ToolTip="Владелец квартиры"/>
+
+                        <TextBlock Grid.Row="3" Text="{Binding Phone, StringFormat='Номер телефона: {0}'}" 
+                           TextWrapping="Wrap" 
+                           HorizontalAlignment="Left" 
+                           Style="{StaticResource ResourceKey=TextStyle}"
+                           ToolTip="Номер телефона"/>
+
+                        <TextBlock Grid.Row="4" Text="{Binding Water, StringFormat='Счет на воду: {0}'}" 
+                           TextWrapping="Wrap" 
+                           HorizontalAlignment="Left" 
+                           Style="{StaticResource ResourceKey =TextStyle}"
+                           ToolTip="Счет на воду"/>
+
+                        <TextBlock Grid.Row="5" Text="{Binding Electricity, StringFormat='Счет на электроэнергию: {0}'}" 
+                           TextWrapping="Wrap" 
+                           HorizontalAlignment="Left" 
+                           Style="{StaticResource ResourceKey =TextStyle}"
+                           ToolTip="Счет на электроэнергию"/>
+
+                        <Button x:Name="Edit" Grid.Row="6" Content="Редактировать" HorizontalAlignment="Center" Click="Edit_Click" Style="{StaticResource ButtonStyle}" Width="105"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
+            <Button x:Name="Add" Content="Добавить" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Add_Click" Style="{StaticResource ButtonStyle}" Width="95"/>
+            <Button x:Name="Delete" Content="Удалить" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Delete_Click" Style="{StaticResource ButtonStyle}" Width="95"/>
+        </StackPanel>
+    </Grid>
+</Page>

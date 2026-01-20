@@ -1,0 +1,101 @@
+﻿<Page x:Class="ManagementCompany_Salchuk_Matyukhina_322.Pages.SpisokPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ManagementCompany_Salchuk_Matyukhina_322.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Список жилого фонда🍕">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="HeaderSpisok" Text="Список жилого фонда" Style="{StaticResource HeaderStyle}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <ListView x:Name="ListViewFond" 
+              Grid.Row="1"
+              HorizontalContentAlignment="Center"
+              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+              ScrollViewer.VerticalScrollBarVisibility="Auto"
+              ToolTip="Список жилого фонда">
+
+            <!-- Добавляем ScrollViewer для поддержки прокрутки -->
+            <ListView.Template>
+                <ControlTemplate TargetType="ListView">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                              HorizontalScrollBarVisibility="Disabled">
+                        <ItemsPresenter/>
+                    </ScrollViewer>
+                </ControlTemplate>
+            </ListView.Template>
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="10" Width="250">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="{Binding Adress}"  Grid.Row="0"
+                                   TextWrapping="Wrap" 
+                                   HorizontalAlignment="Center" 
+                                   Style="{StaticResource ResourceKey=HeaderStyle}"
+                                   ToolTip="Адрес дома"/>
+
+                        <TextBlock Grid.Row="1" Text="{Binding StartDate, StringFormat='Начало управления: {0:yyyy-MM-dd}'}" 
+                               TextWrapping="Wrap" 
+                               HorizontalAlignment="Left" 
+                               Style="{StaticResource ResourceKey=TextStyle}"
+                               ToolTip="Дата постройки здания"/>
+
+                        <TextBlock Grid.Row="2" Text="{Binding Floors, StringFormat='Этажей: {0}'}" 
+                               TextWrapping="Wrap" 
+                               HorizontalAlignment="Left" 
+                               Style="{StaticResource ResourceKey=TextStyle}"
+                               ToolTip="Количество этажей"/>
+
+                        <TextBlock Grid.Row="3" Text="{Binding Apartament, StringFormat='Квартир: {0}'}" 
+                               TextWrapping="Wrap" 
+                               HorizontalAlignment="Left" 
+                               Style="{StaticResource ResourceKey=TextStyle}"
+                               ToolTip="Количество квартир"/>
+
+                        <TextBlock Grid.Row="4" Text="{Binding Year, StringFormat='Год: {0}'}" 
+                               TextWrapping="Wrap" 
+                               HorizontalAlignment="Left" 
+                               Style="{StaticResource ResourceKey=TextStyle}"
+                               ToolTip="Год"/>
+
+                        <TextBlock Grid.Row="5" Text="{Binding Square, StringFormat='Площадь: {0} м²'}" 
+                               TextWrapping="Wrap" 
+                               HorizontalAlignment="Left" 
+                               Style="{StaticResource ResourceKey =TextStyle}"
+                               ToolTip="Общая площадь здания"/>
+
+                        <Button x:Name="Edit" Grid.Row="6" Content="Редактировать" HorizontalAlignment="Center" Click="Edit_Click" Style="{StaticResource ButtonStyle}" Width="105"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
+            <Button x:Name="Add" Content="Добавить" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Add_Click" Style="{StaticResource ButtonStyle}" Width="95"/>
+            <Button x:Name="Delete" Content="Удалить" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Delete_Click" Style="{StaticResource ButtonStyle}" Width="95"/>
+        </StackPanel>
+    </Grid>
+</Page>

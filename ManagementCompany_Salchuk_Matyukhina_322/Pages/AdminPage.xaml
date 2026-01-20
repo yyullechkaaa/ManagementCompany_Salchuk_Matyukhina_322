@@ -1,0 +1,47 @@
+﻿<Page x:Class="ManagementCompany_Salchuk_Matyukhina_322.Pages.AdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ManagementCompany_Salchuk_Matyukhina_322.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Администратор">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Страница администратора" Style="{StaticResource HeaderStyle}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0"/>
+
+        <Border x:Name="BorderAdmin" 
+        HorizontalAlignment="Center" 
+        VerticalAlignment="Center" Style="{StaticResource BorderStyle}" Grid.Row="1">
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="SpisokButton" Content="Список жилого фонда" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    Width="300"
+                    Click="SpisokButton_Click" 
+                    Style="{StaticResource ButtonStyle}"/>
+
+                    <Button x:Name="DebtButton" Content="Задолженности по оплате" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    Width="300"
+                    Click="DebtButton_Click" 
+                    Style="{StaticResource ButtonStyle}"/>
+                </StackPanel>
+
+                <Button x:Name="OtchetButton" Content="Отчеты по оплате" 
+                HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Width="300"
+                Click="OtchetButton_Click" 
+                Style="{StaticResource ButtonStyle}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

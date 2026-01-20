@@ -12,6 +12,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Right" VerticalAlignment="Center" Click="BackButton_Click" Grid.Row="0" Style="{StaticResource ButtonStyle}"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
+            <Button x:Name="AdminButton" Content="Администратор" HorizontalAlignment="Center" VerticalAlignment="Center" Click="AdminButton_Click" Grid.Row="0" Style="{StaticResource ButtonStyle}" Width="105"/>
+            <Button x:Name="DirectorButton" Content="Руководитель" HorizontalAlignment="Center" VerticalAlignment="Center" Click="DirectorButton_Click" Grid.Row="0" Style="{StaticResource ButtonStyle}" Width="105"/>
+        </StackPanel>
         <Image Source="/logo.png" Grid.Row="0" x:Name="LogoImage" Style="{StaticResource ImageStyle}"/>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1" Style="{StaticResource FrameBack}"/>
     </Grid>

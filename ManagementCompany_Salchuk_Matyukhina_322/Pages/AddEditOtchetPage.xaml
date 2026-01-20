@@ -1,0 +1,83 @@
+﻿<Page x:Class="ManagementCompany_Salchuk_Matyukhina_322.Pages.AddEditOtchetPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ManagementCompany_Salchuk_Matyukhina_322.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Добавление/редактирование">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Добавление/редактирование оплаты" 
+               Style="{StaticResource ResourceKey=HeaderStyle}" 
+               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+                <TextBlock Text="Адрес" Style="{StaticResource ResourceKey=TextStyle}" Width="200"/>
+                <TextBox Text="{Binding Adress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                 Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="addresstextbox" Width="350"
+                 ToolTip="Введите адрес" Margin="0,10"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Margin="0,10">
+                <TextBlock Text="Владелец" Style="{StaticResource ResourceKey=TextStyle}" Width="200"/>
+                <ComboBox Width="350" SelectedItem="{Binding Owner1, Mode=TwoWay}" 
+                x:Name="comboboxowner" Height="30" DisplayMemberPath="Name" SelectedValuePath="Owner_id"
+                ToolTip="Выберите владельца из списка"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3">
+                <TextBlock Text="Номер квартиры" Style="{StaticResource ResourceKey=TextStyle}" Width="200"/>
+                <TextBox Text="{Binding Apartment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+             Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="aparttextbox" Width="350"
+             ToolTip="Введите номер квартиры" Margin="0,10"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4">
+                <TextBlock Text="Период оплаты" Style="{StaticResource ResourceKey=TextStyle}" Width="200"/>
+                <TextBox Text="{Binding Period, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                 Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="periodtextbox" Width="350"
+                 ToolTip="Введите период" Margin="0,10"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5">
+                <TextBlock Text="Начислено" Style="{StaticResource ResourceKey=TextStyle}" Width="200"/>
+                        <TextBox Text="{Binding Accrued, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="accruedtextbox" Width="350"
+                ToolTip="Введите сумма начисления" Margin="0,10"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6">
+                <TextBlock Text="Оплачено" Style="{StaticResource ResourceKey=TextStyle}" Width="200"/>
+                <TextBox Text="{Binding Paid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+        Style="{StaticResource ResourceKey=TextBoxStyle}" x:Name="paidtextbox" Width="350"
+        ToolTip="Введите сумму оплаты" Margin="0,10"/>
+            </StackPanel>
+
+            <Button Content="Сохранить" x:Name="savebutton" Click="savebutton_Click" Height="30" 
+        Style="{StaticResource ResourceKey=ButtonStyle}" Grid.Row="7" 
+        VerticalAlignment="Center" HorizontalAlignment="Center" Width="350" Margin="0,20"
+        ToolTip="Сохранить объявление"/>
+
+            <Button Grid.Row="8" x:Name="ButtonClean" Content="Очистить" Width="350" Height="30" 
+        Click="ButtonClean_Click" Style="{StaticResource ResourceKey=ButtonStyle}" 
+        HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10"
+        ToolTip="Очистить все поля формы"/>
+        </Grid>
+    </ScrollViewer>
+</Page>

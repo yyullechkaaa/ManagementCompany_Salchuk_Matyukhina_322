@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Entity;
+
 
 namespace ManagementCompany_Salchuk_Matyukhina_322
 {
@@ -32,6 +34,16 @@ namespace ManagementCompany_Salchuk_Matyukhina_322
             {
                 MainFrame.GoBack();
             }
+        }
+
+        private void AdminButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Pages.AdminPage());
+        }
+
+        private void DirectorButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Pages.DirectorPage());
         }
     }
 }
